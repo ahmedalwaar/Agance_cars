@@ -1,0 +1,75 @@
+body {
+    background: #222;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px; /* تكبير الخط العام */
+}
+
+.crud { width: 95%; margin: auto; }
+
+/* تنسيق السطر المدمج */
+.main-header-row {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: space-between;
+}
+
+
+stat-box {
+    flex: 1;
+    height: 60px;
+    display: flex;#totalBox {
+        background: #2e7d32; /* اللون الأخضر */
+    }      
+}
+
+.blue { background: #00bcd4; color: white; }
+.yellow { background: #ffc107; color: black; }
+
+#submit {
+    flex: 2;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* المدخلات والجدول */
+input {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 10px;
+    background: #111;
+    color: white;
+    border: 1px solid #444;
+    font-size: 25px;
+}
+
+table { width: 100%; text-align: center; border-spacing: 5px; margin-top: 15px; }
+th { background: #555; padding: 10px; }
+td { background: #444; padding: 10px; border-bottom: 1px solid #666; }
+
+button { cursor: pointer; border: none; padding: 8px; border-radius: 4px; color: white; }
+.btn-print { background: #1976d2; width: 48%; }
+.btn-new { background: #2e7d32; width: 48%; }
+.btn-reset { background: #d32f2f; width: 100%; margin-top: 20px; }
+
+#resetBtn {
+    transition: 0.3s;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#resetBtn:hover {
+    background: #b71c1c;
+    transform: scale(1.01);
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #555;
+}

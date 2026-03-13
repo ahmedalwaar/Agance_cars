@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>كاشير عبده - النسخة الاحترافية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="crud">
+        <div class="head">
+            <h2>نظام كاشير عبده الاحترافي</h2>
+        </div>
+
+        <div class="inputs">
+            <input placeholder="اسم المنتج" type="text" id="title">
+            <div class="price-row" style="display: flex; gap: 10px;">
+                <input onkeyup="getTotal()" type="number" id="price" placeholder="السعر">
+                <input onkeyup="getTotal()" type="number" id="discount" placeholder="الخصم">
+                <small id="totalBox">0</small>
+            </div>
+            <input placeholder="الكمية في المخزن" type="number" id="countInStore">
+            <input placeholder="الفئة" type="text" id="category">
+        </div>
+
+        <div class="outputs">
+            <div class="main-header-row" style="margin-bottom: 20px;">
+                <button id="submit" onclick="submitProduct()">إضافة للمخزن</button>
+                <div id="invoiceCurrentTotal" class="stat-box blue">إجمالي الفاتورة: 0 ج.م</div>
+                <div id="grandTotalDayDisplay" class="stat-box yellow">أرباح اليوم: 0 ج.م</div>
+            </div>
+
+            <div class="cart-section">
+                <h3>🛒 سلة مبيعات الزبون الحالي</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>المنتج</th>
+                            <th>السعر</th>
+                            <th>الكمية</th>
+                            <th>الإجمالي</th>
+                            <th>حذف</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartBody"></tbody>
+                </table>
+                
+                <div class="action-buttons" style="display: flex; gap: 10px; margin-top: 15px;">
+                    <button onclick="printInvoice()" style="background: #1976d2; flex: 1; padding: 12px;">طبع الفاتورة 🖨️</button>
+                    <button onclick="newCustomer()" style="background: #2e7d32; flex: 1; padding: 12px;">فاتورة جديدة ✅</button>
+                    <button onclick="resetDayProfits()" id="resetBtn" style="background: #d32f2f; flex: 1; padding: 12px;">تصفير الأرباح 🔄</button>
+                </div>
+            </div>
+
+            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #444;">
+
+            <h3 class="store-title" style="color: #00bcd4;">📦 المخزن الرئيسي</h3>
+            <div class="searchBlock">
+                <input onkeyup="searchData(this.value)" type="text" placeholder="بحث في المخزن...">
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>م</th> 
+                        <th>المنتج</th>
+                        <th>الفئة</th>
+                        <th>السعر</th>
+                        <th>الخصم</th>
+                        <th>السعربعدالخصم</th>
+                        <th>المخزن</th>
+                        <th>تعديل</th>
+                        <th>حذف</th>
+                        <th>بيع 🛒</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+        </div>
+
+        <div id="printArea" style="display:none;">
+            <div style="text-align:center; direction:rtl; font-family: Arial;">
+                <h1>فاتورة محل عبده</h1>
+                <p id="pDate"></p>
+                <hr>
+                <table border="1" style="width:100%; border-collapse: collapse;">
+                    <thead><tr><th>المنتج</th><th>السعر</th><th>العدد</th><th>الإجمالي</th></tr></thead>
+                    <tbody id="pBody"></tbody>
+                </table>
+                <h2 id="pTotal" style="margin-top:20px;"></h2>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
